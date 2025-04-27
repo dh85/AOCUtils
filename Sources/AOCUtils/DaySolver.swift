@@ -13,7 +13,7 @@ public protocol DaySolver {
     var testInput: String { get }
 
     /// Parses the raw input string into the `InputData` type.
-    func parse(input: String) -> InputData
+    func parse(input: String) -> InputData?
 
     /// Solves Part 1 of the puzzle using the parsed data.
     func solvePart1(data: InputData) -> Result1
