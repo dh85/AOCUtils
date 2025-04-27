@@ -2,7 +2,7 @@ import Testing
 
 public func runParseTest<S: DaySolver>(
     solver: S,
-    expected: S.InputData,
+    expected: S.ParsedData,
     fileID: String = #fileID,
     filePath: String = #filePath,
     line: Int = #line,
@@ -21,13 +21,13 @@ public func runParseTest<S: DaySolver>(
 
 public func runSolutionTest1<S: DaySolver>(
     solver: S,
-    data: S.InputData,
+    data: S.ParsedData,
     expected: S.Result1,
     fileID: String = #fileID,
     filePath: String = #filePath,
     line: Int = #line,
     column: Int = #column
-) throws {
+) {
     let sourceLocation = SourceLocation(
         fileID: fileID,
         filePath: filePath,
@@ -42,13 +42,13 @@ public func runSolutionTest1<S: DaySolver>(
 
 public func runSolutionTest2<S: DaySolver>(
     solver: S,
-    data: S.InputData,
+    data: S.ParsedData,
     expected: S.Result2,
     fileID: String = #fileID,
     filePath: String = #filePath,
     line: Int = #line,
     column: Int = #column
-) throws {
+) {
     let sourceLocation = SourceLocation(
         fileID: fileID,
         filePath: filePath,

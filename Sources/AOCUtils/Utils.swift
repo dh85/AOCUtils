@@ -9,12 +9,16 @@ public func runDay<S: DaySolver>(solver: S, resourceBundler: Bundle) {
 
     // --- Test Input Execution ---
     print("[Test Input]")
-    let testParsedData = solver.parse(input: solver.testInput)
-    let testResult1 = solver.solvePart1(data: testParsedData)
-    print("  Part 1: \(testResult1)") // Relies on CustomStringConvertible
+    if let testParsedData = solver.parse(input: solver.testInput) {
+        let testResult1 = solver.solvePart1(data: testParsedData)
+        print("  Part 1: \(testResult1)") // Relies on CustomStringConvertible
 
-    let testResult2 = solver.solvePart2(data: testParsedData)
-    print("  Part 2: \(testResult2)")
+        let testResult2 = solver.solvePart2(data: testParsedData)
+        print("  Part 2: \(testResult2)")
+    } else {
+        print("  Failed to parse test input.")
+    }
+
     print("--------------------")
 
 
@@ -27,12 +31,15 @@ public func runDay<S: DaySolver>(solver: S, resourceBundler: Bundle) {
         return
     }
 
-    let fileParsedData = solver.parse(input: fileInput)
-    let fileResult1 = solver.solvePart1(data: fileParsedData)
-    print("  Part 1: \(fileResult1)")
+    if let fileParsedData = solver.parse(input: fileInput) {
+        let fileResult1 = solver.solvePart1(data: fileParsedData)
+        print("  Part 1: \(fileResult1)")
 
-    let fileResult2 = solver.solvePart2(data: fileParsedData)
-    print("  Part 2: \(fileResult2)")
+        let fileResult2 = solver.solvePart2(data: fileParsedData)
+        print("  Part 2: \(fileResult2)")
+    } else {
+        print(" Failed to parse main input file: \(fileInput).txt")
+    }
     print("====================")
 }
 
